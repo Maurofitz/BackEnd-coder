@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "contenedor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maurofitz/BackEnd-coder.git"
+  },
+  "keywords": [],
+  "author": "mauro fitz maurice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maurofitz/BackEnd-coder/issues"
+  },
+  "homepage": "https://github.com/Maurofitz/BackEnd-coder#readme",
+  "description": "",
+  "dependencies": {
+    "backend": "^0.0.0"
+  }
+}
