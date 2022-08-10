@@ -1,4 +1,5 @@
 const express = require("express");
+
 const app = express();
 
  const fs = require ("fs");
@@ -11,6 +12,7 @@ const app = express();
         });
     });
 }
+
 const random = (req , res ) => {
     fs.readFile('./productos.txt','utf-8', (error, data) => {
         if (error) throw error;
@@ -21,14 +23,17 @@ const random = (req , res ) => {
         });
     });
 }
+
 app.get('/productos', productsGet)
 
 app.get('/productoRandom', random )
+
 
 const PORT = 8080;
 
 const server = app.listen(PORT,()=>{
     console.log(`Servidor HTTP escuchando en puerto http://localhost:${PORT}`)
 });
+
 
 server.on('error',(error)=> console.log(error));
