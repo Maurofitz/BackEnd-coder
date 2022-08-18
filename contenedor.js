@@ -53,9 +53,28 @@ class Contenedor {
         console.log('Objeto eliminado!');
     }   
     async deleteAll(){
-        await fs.writeFile(`./${this.ruta}`, '');
+        try{
+            await fs.writeFile(`./${this.ruta}`, '');
+        } catch (error) {
+            throw new Error (` falla: ${error}`);    
+        }
     }
+    async update(id , update){
 
+        try {
+            const lista = await this.getAll();
+            const producto =  await this.getById(id)
+            const Objeto = lista.findIndex( e => e.id == id);
+            producto.title = update.title;
+            producto.price = update.price;
+            producto.thumbnail = update.thumbnail;
+            lista.splice(Objeto , 1 , producto)
+            await this.deleteAll();
+            await fs.writeFile(`./${this.ruta}`, JSON.stringify(lista));
+            return producto
+        } catch (error) {
+            throw new Error (`error: ${error}`);  
+        }
+   }
 }
-
 module.exports = Contenedor
